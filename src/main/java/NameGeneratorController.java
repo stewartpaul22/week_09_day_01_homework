@@ -3,6 +3,7 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static spark.Spark.get;
@@ -27,8 +28,18 @@ public class NameGeneratorController {
 
         }, velocityTemplateEngine);
 
-        
 
+        get("/two", (req, res) -> {
+
+            NameGenerator nameGenerator = new NameGenerator();
+            ArrayList twoNames = nameGenerator.generateRandomNames(2);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", twoNames);
+
+            return new ModelAndView(model, "two_names.vtl");
+
+        }, velocityTemplateEngine);
 
     }
 }
