@@ -1,6 +1,8 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class NameGenerator {
 
@@ -20,5 +22,20 @@ public class NameGenerator {
 
     public void setNames(ArrayList<String> names) {
         this.names = names;
+    }
+
+    public String generateRandomName() {
+        Collections.shuffle(this.names);
+        return this.names.remove(0);
+
+    }
+
+    public ArrayList<String> generateTwoRandomNames() {
+        ArrayList<String> twoNames = new ArrayList<String>();
+        for (int i = 0; i < 2; i++){
+            Collections.shuffle(this.names);
+            twoNames.add(this.names.remove(0));
+        }
+        return twoNames;
     }
 }
