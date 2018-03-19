@@ -30,9 +30,9 @@ public class NameGenerator {
 
     }
 
-    public ArrayList<String> generateTwoRandomNames() {
+    public ArrayList<String> generateRandomNames(int namesRequired) {
         ArrayList<String> twoNames = new ArrayList<String>();
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < namesRequired; i++){
             Collections.shuffle(this.names);
             twoNames.add(this.names.remove(0));
         }

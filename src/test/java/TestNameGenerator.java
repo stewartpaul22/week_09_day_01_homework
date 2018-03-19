@@ -34,8 +34,9 @@ public class TestNameGenerator {
 
     @Test
     public void canGetTwoRandomNames() {
-        ArrayList<String> twoNames = nameGenerator.generateTwoRandomNames();
+        ArrayList<String> twoNames = nameGenerator.generateRandomNames(2);
         assert(tempNames.contains(twoNames.get(0)));
         assert(tempNames.contains(twoNames.get(1)));
+        assertEquals(2, twoNames.size());
     }
 }
