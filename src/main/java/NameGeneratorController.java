@@ -23,8 +23,9 @@ public class NameGeneratorController {
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("name", name);
+            model.put("template", "one_name.vtl");
 
-            return new ModelAndView(model, "one_name.vtl");
+            return new ModelAndView(model, "layout.vtl");
 
         }, velocityTemplateEngine);
 
@@ -36,8 +37,9 @@ public class NameGeneratorController {
 
             HashMap<String, Object> model = new HashMap<>();
             model.put("names", twoNames);
+            model.put("template", "two_names.vtl");
 
-            return new ModelAndView(model, "two_names.vtl");
+            return new ModelAndView(model, "layout.vtl");
 
         }, velocityTemplateEngine);
 
