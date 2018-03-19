@@ -56,5 +56,18 @@ public class NameGeneratorController {
 
         }, velocityTemplateEngine);
 
+        get("/four", (req, res) -> {
+
+            NameGenerator nameGenerator = new NameGenerator();
+            ArrayList fourNames = nameGenerator.generateRandomNames(4);
+
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("names", fourNames);
+            model.put("template", "four_names.vtl");
+
+            return new ModelAndView(model, "layout.vtl");
+
+        }, velocityTemplateEngine);
+
     }
 }
