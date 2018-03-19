@@ -39,4 +39,9 @@ public class TestNameGenerator {
         assert(tempNames.contains(twoNames.get(1)));
         assertEquals(2, twoNames.size());
     }
+
+    @Test
+    public void returnAllNamesIfNotEnough() {
+        assertEquals(4, nameGenerator.generateRandomNames(99).size());
+    }
 }

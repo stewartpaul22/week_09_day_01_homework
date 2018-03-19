@@ -9,7 +9,7 @@ public class NameGenerator {
     private ArrayList<String> names;
 
     public NameGenerator() {
-        this.names = new ArrayList<String>();
+        this.names = new ArrayList<>();
         this.names.add("John");
         this.names.add("Paul");
         this.names.add("George");
@@ -27,15 +27,17 @@ public class NameGenerator {
     public String generateRandomName() {
         Collections.shuffle(this.names);
         return this.names.remove(0);
-
     }
 
     public ArrayList<String> generateRandomNames(int namesRequired) {
-        ArrayList<String> twoNames = new ArrayList<String>();
-        for (int i = 0; i < namesRequired; i++){
-            Collections.shuffle(this.names);
-            twoNames.add(this.names.remove(0));
+        if(namesRequired <= this.names.size()) {
+            ArrayList<String> result = new ArrayList<String>();
+            for (int i = 0; i < namesRequired; i++){
+                Collections.shuffle(this.names);
+                result.add(this.names.remove(0));
+            }
+            return result;
         }
-        return twoNames;
+        return names;
     }
 }
