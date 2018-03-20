@@ -30,14 +30,17 @@ public class NameGenerator {
     }
 
     public ArrayList<String> generateRandomNames(int namesRequired) {
-        if(namesRequired <= this.names.size()) {
-            ArrayList<String> result = new ArrayList<String>();
+        if(namesRequired <= 0) {
+            return this.names;
+        } else if (namesRequired <= this.names.size()) {
+            ArrayList<String> result = new ArrayList<>();
             for (int i = 0; i < namesRequired; i++){
                 Collections.shuffle(this.names);
                 result.add(this.names.remove(0));
             }
             return result;
         }
-        return names;
+        return this.names;
     }
+
 }

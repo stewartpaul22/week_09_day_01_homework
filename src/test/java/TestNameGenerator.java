@@ -14,7 +14,7 @@ public class TestNameGenerator {
     @Before
     public void setUp() throws Exception {
         nameGenerator = new NameGenerator();
-        tempNames = new ArrayList<String>();
+        tempNames = new ArrayList<>();
         tempNames.add("John");
         tempNames.add("Paul");
         tempNames.add("George");
@@ -43,5 +43,11 @@ public class TestNameGenerator {
     @Test
     public void returnAllNamesIfNotEnough() {
         assertEquals(4, nameGenerator.generateRandomNames(99).size());
+    }
+
+    @Test
+    public void returnAllNamesIfZeroOrNegative() {
+        assertEquals(4, nameGenerator.generateRandomNames(0).size());
+        assertEquals(4, nameGenerator.generateRandomNames(-6).size());
     }
 }
